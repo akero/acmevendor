@@ -26,6 +26,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    // Enable view binding (optional but recommended)
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -63,7 +68,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.4.3'
     implementation 'androidx.room:room-ktx:2.4.3'
     implementation 'com.google.android.gms:play-services-location:21.0.1'
-    implementation 'androidx.room:room-compiler:2.4.3'
+    annotationProcessor 'androidx.room:room-compiler:2.4.3'
 
 
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
