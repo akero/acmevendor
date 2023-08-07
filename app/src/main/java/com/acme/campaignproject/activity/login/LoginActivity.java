@@ -20,6 +20,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.activity.dashboard.AdminDashboardActivity;
 import com.acme.campaignproject.activity.dashboard.BaseActivity;
 import com.acme.campaignproject.activity.dashboard.ClientDashBoardActivity;
@@ -30,17 +32,10 @@ import com.acme.campaignproject.utility.AppPreferences;
 import com.acme.campaignproject.utility.NetworkUtils;
 import com.acme.campaignproject.viewmodel.LoginActivityViewModel;
 import kotlin.Metadata;
-import kotlin.ResultKt;
-import kotlin.Unit;
-import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
-import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-import kotlinx.coroutines.BuildersKt;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.CoroutineScopeKt;
-import kotlinx.coroutines.CoroutineStart;
 import kotlinx.coroutines.Dispatchers;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -119,7 +114,7 @@ public final class LoginActivity extends BaseActivity {
 
             public final void onChanged(SendOtpResponseModel it) {
                 LoginActivity.this.hideProgressDialog();
-                Toast.makeText((Context)LoginActivity.this, (CharSequence)it.getMessage(), 1).show();
+                Toast.makeText((Context)LoginActivity.this, (CharSequence)it.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.d("result", "ressponse " + it);
                 AppPreferences.Companion.getInstance((Context)LoginActivity.this).saveUserData(it.toString());
                 if (LoginActivity.this.getLoginType() == 0) {
@@ -146,7 +141,7 @@ public final class LoginActivity extends BaseActivity {
 
             public final void onChanged(String it) {
                 LoginActivity.this.hideProgressDialog();
-                Toast.makeText((Context)LoginActivity.this, (CharSequence)it, 1).show();
+                Toast.makeText((Context)LoginActivity.this, (CharSequence)it, Toast.LENGTH_SHORT).show();
                 Log.d("result", "ressponse " + it);
             }
         }));
@@ -173,49 +168,27 @@ public final class LoginActivity extends BaseActivity {
             var2 = (CharSequence)var3.getText();
             if (var2 != null && var2.length() != 0) {
                 if (!NetworkUtils.Companion.isNetworkAvailable((Context)this)) {
-                    Toast.makeText((Context)this, (CharSequence)"Check your Internet Connection and Try Again", 1).show();
+                    Toast.makeText((Context)this, (CharSequence)"Check your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
                 } else {
-                    BuildersKt.launch$default(this.coroutineScope, (CoroutineContext)null, (CoroutineStart)null, (Function2)(new Function2((Continuation)null) {
-                        int label;
-
-                        @Nullable
-                        public final Object invokeSuspend(@NotNull Object var1) {
-                            Object var2 = IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                            switch (this.label) {
-                                case 0:
-                                    ResultKt.throwOnFailure(var1);
-                                    LoginActivity.this.showProgressDialog();
-                                    LoginActivityViewModel var10000 = LoginActivity.access$getLoginActivityViewModel$p(LoginActivity.this);
-                                    EditText var10001 = LoginActivity.access$getBinding$p(LoginActivity.this).etLoginid;
-                                    Intrinsics.checkNotNullExpressionValue(var10001, "binding.etLoginid");
-                                    String var3 = var10001.getText().toString();
-                                    EditText var10002 = LoginActivity.access$getBinding$p(LoginActivity.this).etPassword;
-                                    Intrinsics.checkNotNullExpressionValue(var10002, "binding.etPassword");
-                                    var10000.callLogin(var3, var10002.getText().toString());
-                                    return Unit.INSTANCE;
-                                default:
-                                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-                            }
+                    (new Thread((Runnable)(new Runnable() {
+                        public final void run() {
+                            LoginActivity.this.showProgressDialog();
+                            LoginActivityViewModel var10000 = LoginActivity.access$getLoginActivityViewModel$p(LoginActivity.this);
+                            EditText var10001 = LoginActivity.access$getBinding$p(LoginActivity.this).etLoginid;
+                            Intrinsics.checkNotNullExpressionValue(var10001, "binding.etLoginid");
+                            String var1 = var10001.getText().toString();
+                            EditText var10002 = LoginActivity.access$getBinding$p(LoginActivity.this).etPassword;
+                            Intrinsics.checkNotNullExpressionValue(var10002, "binding.etPassword");
+                            var10000.callLogin(var1, var10002.getText().toString());
                         }
-
-                        @NotNull
-                        public final Continuation create(@Nullable Object value, @NotNull Continuation completion) {
-                            Intrinsics.checkNotNullParameter(completion, "completion");
-                            Function2 var3 = new <anonymous constructor>(completion);
-                            return var3;
-                        }
-
-                        public final Object invoke(Object var1, Object var2) {
-                            return ((<undefinedtype>)this.create(var1, (Continuation)var2)).invokeSuspend(Unit.INSTANCE);
-                        }
-                    }), 3, (Object)null);
+                    }))).start();
                 }
 
                 return;
             }
         }
 
-        Toast.makeText((Context)this, (CharSequence)"Fill all the fields", 1).show();
+        Toast.makeText((Context)this, (CharSequence)"Fill all the fields", Toast.LENGTH_SHORT).show();
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -227,19 +200,19 @@ public final class LoginActivity extends BaseActivity {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvAdminLogin.setBackgroundResource(700022);
+        var10000.tvAdminLogin.setBackgroundResource(R.drawable.primaryround);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvClientLogin.setBackgroundResource(500013);
+        var10000.tvClientLogin.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvVenderLogin.setBackgroundResource(500013);
+        var10000.tvVenderLogin.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -269,19 +242,19 @@ public final class LoginActivity extends BaseActivity {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvVenderLogin.setBackgroundResource(700022);
+        var10000.tvVenderLogin.setBackgroundResource(R.drawable.primaryround);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvClientLogin.setBackgroundResource(500013);
+        var10000.tvClientLogin.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvAdminLogin.setBackgroundResource(500013);
+        var10000.tvAdminLogin.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -311,19 +284,19 @@ public final class LoginActivity extends BaseActivity {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvAdminLogin.setBackgroundResource(500013);
+        var10000.tvAdminLogin.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvClientLogin.setBackgroundResource(700022);
+        var10000.tvClientLogin.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvVenderLogin.setBackgroundResource(500013);
+        var10000.tvVenderLogin.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -360,7 +333,7 @@ public final class LoginActivity extends BaseActivity {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
             }
 
-            var10000.ivHidepassword.setImageResource(700000);
+            var10000.ivHidepassword.setImageResource(R.drawable.ic_eye);
             var10000 = this.binding;
             if (var10000 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -376,7 +349,7 @@ public final class LoginActivity extends BaseActivity {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
             }
 
-            var10000.ivHidepassword.setImageResource(700012);
+            var10000.ivHidepassword.setImageResource(R.drawable.ic_eye_hide);
             var10000 = this.binding;
             if (var10000 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
