@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -113,14 +114,17 @@ public final class AdminDashboardActivity extends AppCompatActivity {
         JSONObject jsonObjecthyundai = new JSONObject();
         JSONObject jsonObjectford = new JSONObject();
         JSONObject jsonObjectpatanjli = new JSONObject();
-        jsonObjectairbnb.put("sitenumber", "001");
-        jsonObjecthyundai.put("sitenumber", "002");
-        jsonObjectford.put("sitenumber", "003");
-        jsonObjectpatanjli.put("sitenumber", "004");
-        jsonObjectairbnb.put("unitnumber", "#887001");
-        jsonObjecthyundai.put("unitnumber", "#878002");
-        jsonObjectford.put("unitnumber", "#765003");
-        jsonObjectpatanjli.put("unitnumber", "#432004");
+        try {
+            jsonObjectairbnb.put("sitenumber", "001");
+            jsonObjecthyundai.put("sitenumber", "002");
+            jsonObjectford.put("sitenumber", "003");
+            jsonObjectpatanjli.put("sitenumber", "004");
+            jsonObjectairbnb.put("unitnumber", "#887001");
+            jsonObjecthyundai.put("unitnumber", "#878002");
+            jsonObjectford.put("unitnumber", "#765003");
+            jsonObjectpatanjli.put("unitnumber", "#432004");
+        }catch(Exception e){
+            Log.d("tag1",e.toString() );}
         jsonArray.put(jsonObjectairbnb);
         jsonArray.put(jsonObjecthyundai);
         jsonArray.put(jsonObjectford);
@@ -137,33 +141,37 @@ public final class AdminDashboardActivity extends AppCompatActivity {
     }
 
     public final void clientList() {
-        GridLayoutManager layoutManager1 = new GridLayoutManager((Context)this, 2);
-        GridLayoutManager layoutManager2 = new GridLayoutManager((Context)this, 2);
+        GridLayoutManager layoutManager1 = new GridLayoutManager((Context) this, 2);
+        GridLayoutManager layoutManager2 = new GridLayoutManager((Context) this, 2);
         ActivityMainBinding var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.rvClientList.setLayoutManager((RecyclerView.LayoutManager)layoutManager1);
+        var10000.rvClientList.setLayoutManager((RecyclerView.LayoutManager) layoutManager1);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.rvVenderList.setLayoutManager((RecyclerView.LayoutManager)layoutManager2);
+        var10000.rvVenderList.setLayoutManager((RecyclerView.LayoutManager) layoutManager2);
         this.jsonArray = new JSONArray();
         JSONObject jsonObjectairbnb = new JSONObject();
         JSONObject jsonObjecthyundai = new JSONObject();
         JSONObject jsonObjectford = new JSONObject();
         JSONObject jsonObjectpatanjli = new JSONObject();
-        jsonObjectairbnb.put("image", 700008);
-        jsonObjecthyundai.put("image", 700003);
-        jsonObjectford.put("image", 700011);
-        jsonObjectpatanjli.put("image", 700018);
-        jsonObjectairbnb.put("name", "Airbnb");
-        jsonObjecthyundai.put("name", "Hyundai");
-        jsonObjectford.put("name", "Ford");
-        jsonObjectpatanjli.put("name", "Patanjli");
+        try {
+            jsonObjectairbnb.put("image", 700008);
+            jsonObjecthyundai.put("image", 700003);
+            jsonObjectford.put("image", 700011);
+            jsonObjectpatanjli.put("image", 700018);
+            jsonObjectairbnb.put("name", "Airbnb");
+            jsonObjecthyundai.put("name", "Hyundai");
+            jsonObjectford.put("name", "Ford");
+            jsonObjectpatanjli.put("name", "Patanjli");
+        } catch (Exception e) {
+            Log.d("tag1", e.toString());
+        }
         JSONArray var9 = this.jsonArray;
         if (var9 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("jsonArray");
@@ -188,43 +196,51 @@ public final class AdminDashboardActivity extends AppCompatActivity {
         }
 
         var9.put(jsonObjectpatanjli);
-        ClientListAdapter var10 = new ClientListAdapter;
-        Context var10002 = (Context)this;
+        Context var10002 = (Context) this;
         JSONArray var10003 = this.jsonArray;
         if (var10003 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("jsonArray");
         }
 
-        var10.<init>(var10002, var10003);
-        ClientListAdapter adapter1 = var10;
-        var10 = new ClientListAdapter;
-        var10002 = (Context)this;
+
+        var10002 = (Context) this;
         var10003 = this.jsonArray;
         if (var10003 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("jsonArray");
+            throw new NullPointerException("jsonArray is not initialized");
         }
+        ClientListAdapter adapter1 = new ClientListAdapter(var10002, var10003);
 
-        var10.<init>(var10002, var10003);
-        ClientListAdapter adapter2 = var10;
+        var10002 = (Context) this;
+        var10003 = this.jsonArray;
+        if (var10003 == null) {
+            throw new NullPointerException("jsonArray is not initialized");
+        }
+        ClientListAdapter adapter2 = new ClientListAdapter(var10002, var10003);
+
         var10000 = this.binding;
         if (var10000 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("binding");
+            throw new NullPointerException("binding is not initialized");
         }
 
         RecyclerView var11 = var10000.rvVenderList;
-        Intrinsics.checkNotNullExpressionValue(var11, "binding.rvVenderList");
-        var11.setAdapter((RecyclerView.Adapter)adapter1);
+        if (var11 == null) {
+            throw new NullPointerException("binding.rvVenderList is not initialized");
+        }
+        var11.setAdapter(adapter1);
+
         var10000 = this.binding;
         if (var10000 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("binding");
+            throw new NullPointerException("binding is not initialized");
         }
 
         var11 = var10000.rvClientList;
-        Intrinsics.checkNotNullExpressionValue(var11, "binding.rvClientList");
-        var11.setAdapter((RecyclerView.Adapter)adapter2);
+        if (var11 == null) {
+            throw new NullPointerException("binding.rvClientList is not initialized");
+        }
+        var11.setAdapter(adapter2);
     }
 
-    public final void onPlusClick(@NotNull View view) {
+        public final void onPlusClick(@NotNull View view) {
         Intrinsics.checkNotNullParameter(view, "view");
         ActivityMainBinding var10000;
         TranslateAnimation animate;
