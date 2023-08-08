@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
@@ -63,14 +65,18 @@ public final class VenderDashBoardActivity extends AppCompatActivity {
         JSONObject jsonObjecthyundai = new JSONObject();
         JSONObject jsonObjectford = new JSONObject();
         JSONObject jsonObjectpatanjli = new JSONObject();
-        jsonObjectairbnb.put("sitenumber", "001");
-        jsonObjecthyundai.put("sitenumber", "002");
-        jsonObjectford.put("sitenumber", "003");
-        jsonObjectpatanjli.put("sitenumber", "004");
-        jsonObjectairbnb.put("unitnumber", "#887001");
-        jsonObjecthyundai.put("unitnumber", "#878002");
-        jsonObjectford.put("unitnumber", "#765003");
-        jsonObjectpatanjli.put("unitnumber", "#432004");
+        try {
+            jsonObjectairbnb.put("sitenumber", "001");
+            jsonObjecthyundai.put("sitenumber", "002");
+            jsonObjectford.put("sitenumber", "003");
+            jsonObjectpatanjli.put("sitenumber", "004");
+            jsonObjectairbnb.put("unitnumber", "#887001");
+            jsonObjecthyundai.put("unitnumber", "#878002");
+            jsonObjectford.put("unitnumber", "#765003");
+            jsonObjectpatanjli.put("unitnumber", "#432004");
+        }catch(Exception e){
+            Log.d("tag2", e.toString());
+        }
         jsonArray.put(jsonObjectairbnb);
         jsonArray.put(jsonObjecthyundai);
         jsonArray.put(jsonObjectford);

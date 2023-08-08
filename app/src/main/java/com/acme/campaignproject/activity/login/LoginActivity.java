@@ -116,7 +116,9 @@ public final class LoginActivity extends BaseActivity {
                 LoginActivity.this.hideProgressDialog();
                 Toast.makeText((Context)LoginActivity.this, (CharSequence)it.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.d("result", "ressponse " + it);
-                AppPreferences.Companion.getInstance((Context)LoginActivity.this).saveUserData(it.toString());
+
+
+                AppPreferences.getInstance((Context)LoginActivity.this).saveUserData(it.toString());
                 if (LoginActivity.this.getLoginType() == 0) {
                     LoginActivity.this.startActivity(new Intent((Context)LoginActivity.this, ClientDashBoardActivity.class));
                 } else if (LoginActivity.this.getLoginType() == 1) {

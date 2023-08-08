@@ -282,7 +282,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
             var3 = var10000.ivAddClient;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivAddClient");
-            var3.setVisibility(4);
+            var3.setVisibility(View.INVISIBLE);
             var10000 = this.binding;
             if (var10000 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -290,7 +290,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
             var3 = var10000.ivRedo;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivRedo");
-            var3.setVisibility(4);
+            var3.setVisibility(View.INVISIBLE);
             var10000 = this.binding;
             if (var10000 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -298,7 +298,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
             var3 = var10000.ivDeleteClient;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivDeleteClient");
-            var3.setVisibility(4);
+            var3.setVisibility(View.INVISIBLE);
         } else {
             this.showMenus = true;
             var10000 = this.binding;
@@ -308,7 +308,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
             var3 = var10000.ivAddClient;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivAddClient");
-            var3.setVisibility(0);
+            var3.setVisibility(View.VISIBLE);
             var10000 = this.binding;
             if (var10000 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -316,7 +316,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
             var3 = var10000.ivRedo;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivRedo");
-            var3.setVisibility(0);
+            var3.setVisibility(View.VISIBLE);
             var10000 = this.binding;
             if (var10000 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -324,7 +324,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
             var3 = var10000.ivDeleteClient;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivDeleteClient");
-            var3.setVisibility(0);
+            var3.setVisibility(View.VISIBLE);
             animate = new TranslateAnimation(0.0F, 0.0F, (float)view.getHeight(), 0.0F);
             animate.setDuration(500L);
             animate.setFillAfter(true);
@@ -351,7 +351,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
             }
 
-            var10000.ivPlus.setImageResource(700025);
+            var10000.ivPlus.setImageResource(R.drawable.ic_cross);
         }
 
     }
@@ -380,7 +380,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
         RecyclerView var2 = var10000.rvCampaignList;
         Intrinsics.checkNotNullExpressionValue(var2, "binding.rvCampaignList");
-        var2.setVisibility(0);
+        var2.setVisibility(View.VISIBLE);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -388,7 +388,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
         var2 = var10000.rvClientList;
         Intrinsics.checkNotNullExpressionValue(var2, "binding.rvClientList");
-        var2.setVisibility(8);
+        var2.setVisibility(View.GONE);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -396,25 +396,25 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
         var2 = var10000.rvVenderList;
         Intrinsics.checkNotNullExpressionValue(var2, "binding.rvVenderList");
-        var2.setVisibility(8);
+        var2.setVisibility(View.GONE);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvCompaign.setBackgroundResource(700022);
+        var10000.tvCompaign.setBackgroundResource(R.drawable.primaryround);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvVender.setBackgroundResource(500013);
+        var10000.tvVender.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvClient.setBackgroundResource(500013);
+        var10000.tvClient.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -445,7 +445,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
         RecyclerView var2 = var10000.rvCampaignList;
         Intrinsics.checkNotNullExpressionValue(var2, "binding.rvCampaignList");
-        var2.setVisibility(8);
+        var2.setVisibility(View.GONE);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -453,7 +453,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
         var2 = var10000.rvClientList;
         Intrinsics.checkNotNullExpressionValue(var2, "binding.rvClientList");
-        var2.setVisibility(8);
+        var2.setVisibility(View.GONE);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -461,25 +461,25 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
         var2 = var10000.rvVenderList;
         Intrinsics.checkNotNullExpressionValue(var2, "binding.rvVenderList");
-        var2.setVisibility(0);
+        var2.setVisibility(View.VISIBLE);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvVender.setBackgroundResource(700022);
+        var10000.tvVender.setBackgroundResource(R.drawable.primaryround);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvCompaign.setBackgroundResource(500013);
+        var10000.tvCompaign.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvClient.setBackgroundResource(500013);
+        var10000.tvClient.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -510,7 +510,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
         RecyclerView var2 = var10000.rvCampaignList;
         Intrinsics.checkNotNullExpressionValue(var2, "binding.rvCampaignList");
-        var2.setVisibility(8);
+        var2.setVisibility(View.GONE);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -518,7 +518,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
         var2 = var10000.rvClientList;
         Intrinsics.checkNotNullExpressionValue(var2, "binding.rvClientList");
-        var2.setVisibility(0);
+        var2.setVisibility(View.VISIBLE);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -526,25 +526,25 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
         var2 = var10000.rvVenderList;
         Intrinsics.checkNotNullExpressionValue(var2, "binding.rvVenderList");
-        var2.setVisibility(8);
+        var2.setVisibility(View.GONE);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvCompaign.setBackgroundResource(500013);
+        var10000.tvCompaign.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvClient.setBackgroundResource(700022);
+        var10000.tvClient.setBackgroundResource(R.drawable.primaryround);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvVender.setBackgroundResource(500013);
+        var10000.tvVender.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
