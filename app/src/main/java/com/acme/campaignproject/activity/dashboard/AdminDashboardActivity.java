@@ -16,6 +16,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.adapters.CampaignListAdapter;
 import com.acme.campaignproject.adapters.ClientListAdapter;
 import com.acme.campaignproject.databinding.ActivityMainBinding;
@@ -251,7 +253,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
             }
 
-            var10000.ivPlus.setImageResource(700024);
+            var10000.ivPlus.setImageResource(R.drawable.ic_add);
             this.showMenus = false;
             animate = new TranslateAnimation(0.0F, 0.0F, 0.0F, (float)view.getHeight());
             animate.setDuration(0L);
