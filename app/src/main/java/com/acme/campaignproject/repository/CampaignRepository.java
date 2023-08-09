@@ -45,8 +45,9 @@ public final class CampaignRepository {
     }
 
     public CampaignRepository(@NotNull CampaignService campaignService) {
-        Intrinsics.checkNotNullParameter(campaignService, "campaignService");
         super();
+        Intrinsics.checkNotNullParameter(campaignService, "campaignService");
+
         this.campaignService = campaignService;
         this.sendotpLiveData = new MutableLiveData();
     }

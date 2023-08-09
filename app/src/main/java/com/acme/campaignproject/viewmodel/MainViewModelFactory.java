@@ -21,13 +21,14 @@ public final class MainViewModelFactory implements ViewModelProvider.Factory {
         if (modelClass.isAssignableFrom(MainViewModel.class)) {
             return (ViewModel)(new MainViewModel(this.repository));
         } else {
-            throw (Throwable)(new IllegalArgumentException("ViewModel Not Found"));
+            throw new IllegalArgumentException("ViewModel Not Found");
         }
     }
 
     public MainViewModelFactory(@NotNull CampaignRepository repository) {
-        Intrinsics.checkNotNullParameter(repository, "repository");
         super();
+
+        Intrinsics.checkNotNullParameter(repository, "repository");
         this.repository = repository;
     }
 }

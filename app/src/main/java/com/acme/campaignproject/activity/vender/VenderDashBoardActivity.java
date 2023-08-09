@@ -11,6 +11,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.adapters.CampaignListAdapter;
 import com.acme.campaignproject.databinding.ActivityVenderDashBoardBinding;
 import kotlin.Metadata;
@@ -46,7 +48,7 @@ public final class VenderDashBoardActivity extends AppCompatActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300015);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_vender_dash_board);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte…tivity_vender_dash_board)");
         this.binding = (ActivityVenderDashBoardBinding)var10001;
         this.campaignList();

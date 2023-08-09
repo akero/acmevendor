@@ -42,22 +42,25 @@ public final class RoundRectCornerImageView extends AppCompatImageView {
     }
 
     public RoundRectCornerImageView(@Nullable Context context) {
-        Intrinsics.checkNotNull(context);
         super(context);
+
+        Intrinsics.checkNotNull(context);
         this.radius = 10.0F;
         this.init();
     }
 
     public RoundRectCornerImageView(@Nullable Context context, @Nullable AttributeSet attrs) {
-        Intrinsics.checkNotNull(context);
         super(context, attrs);
+
+        Intrinsics.checkNotNull(context);
         this.radius = 10.0F;
         this.init();
     }
 
     public RoundRectCornerImageView(@Nullable Context context, @Nullable AttributeSet attrs, int defStyle) {
-        Intrinsics.checkNotNull(context);
         super(context, attrs, defStyle);
+
+        Intrinsics.checkNotNull(context);
         this.radius = 10.0F;
         this.init();
     }

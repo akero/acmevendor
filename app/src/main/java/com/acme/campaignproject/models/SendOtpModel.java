@@ -28,9 +28,10 @@ public final class SendOtpModel {
     }
 
     public SendOtpModel(@NotNull String county_code, @NotNull String mobile) {
+        super();
+
         Intrinsics.checkNotNullParameter(county_code, "county_code");
         Intrinsics.checkNotNullParameter(mobile, "mobile");
-        super();
         this.county_code = county_code;
         this.mobile = mobile;
     }

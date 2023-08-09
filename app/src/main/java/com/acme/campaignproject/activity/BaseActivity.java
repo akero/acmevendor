@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.acme.campaignproject.R;
+
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import org.jetbrains.annotations.Nullable;
@@ -40,7 +43,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder((Context)this);
         builder.setCancelable(false);
         LayoutInflater inflater = LayoutInflater.from((Context)this);
-        View view = inflater.inflate(1300014, (ViewGroup)null);
+        View view = inflater.inflate(R.layout.custom_progess, (ViewGroup)null);
         builder.setView(view);
         AlertDialog var10000 = builder.create();
         Intrinsics.checkNotNullExpressionValue(var10000, "builder.create()");
@@ -49,7 +52,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             Window var5 = dialog.getWindow();
             Intrinsics.checkNotNull(var5);
             Intrinsics.checkNotNullExpressionValue(var5, "dialog.window!!");
-            var5.getDecorView().setBackgroundResource(17170445);
+            var5.getDecorView().setBackgroundResource(android.R.color.transparent);
         }
 
         return dialog;

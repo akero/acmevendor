@@ -1,5 +1,7 @@
 package com.acme.campaignproject.activity.dashboard;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
@@ -28,6 +30,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.databinding.ActivityAddSiteDetailBinding;
 import com.acme.campaignproject.utility.NetworkUtils;
 import java.util.Arrays;
@@ -128,7 +132,7 @@ public final class AddSiteDetailActivity extends AppCompatActivity implements Lo
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300012);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_add_site_detail);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte…activity_add_site_detail)");
         this.binding = (ActivityAddSiteDetailBinding)var10001;
     }
@@ -233,13 +237,13 @@ public final class AddSiteDetailActivity extends AppCompatActivity implements Lo
             }
         }
 
-        Toast.makeText((Context)this, (CharSequence)"Fill all the fields", 1).show();
+        Toast.makeText((Context)this, (CharSequence)"Fill all the fields", Toast.LENGTH_SHORT).show();
     }
 
     public final void addImage(@NotNull View view) {
         Intrinsics.checkNotNullParameter(view, "view");
         if (!NetworkUtils.Companion.isNetworkAvailable((Context)this)) {
-            Toast.makeText((Context)this, (CharSequence)"Check your Internet Connection and Try Again", 1).show();
+            Toast.makeText((Context)this, (CharSequence)"Check your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
         } else if (!this.checkPermissions()) {
             this.requestPermissions();
         } else {
@@ -302,7 +306,7 @@ public final class AddSiteDetailActivity extends AppCompatActivity implements Lo
     }
 
     private final void getLastLocation() {
-        Object var10001 = this.getSystemService("location");
+        Object var10001 = this.getSystemService(LOCATION_SERVICE);
         if (var10001 == null) {
             throw new NullPointerException("null cannot be cast to non-null type android.location.LocationManager");
         } else {
@@ -336,7 +340,7 @@ public final class AddSiteDetailActivity extends AppCompatActivity implements Lo
     }
 
     private final void showSnackbar(String mainTextStringId, String actionStringId, View.OnClickListener listener) {
-        Toast.makeText((Context)this, (CharSequence)mainTextStringId, 1).show();
+        Toast.makeText((Context)this, (CharSequence)mainTextStringId, Toast.LENGTH_SHORT).show();
     }
 
     private final boolean checkPermissions() {
@@ -364,7 +368,7 @@ public final class AddSiteDetailActivity extends AppCompatActivity implements Lo
                         intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                         Uri uri = Uri.fromParts("package", Build.DISPLAY, (String)null);
                         intent.setData(uri);
-                        intent.setFlags(268435456);
+                        intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
                         AddSiteDetailActivity.this.startActivity(intent);
                     }
                 }));
@@ -381,16 +385,16 @@ public final class AddSiteDetailActivity extends AppCompatActivity implements Lo
         AlertDialog.Builder builder = new AlertDialog.Builder((Context)this);
         builder.setCancelable(false);
         LayoutInflater inflater = LayoutInflater.from((Context)this);
-        View var10000 = inflater.inflate(1300011, (ViewGroup)null);
+        View var10000 = inflater.inflate(R.layout.custom_emailsent, (ViewGroup)null);
         Intrinsics.checkNotNullExpressionValue(var10000, "inflater.inflate(R.layout.custom_emailsent, null)");
         View view = var10000;
-        TextView tvMsg = (TextView)view.findViewById(1000003);
-        TextView tvResubmit = (TextView)view.findViewById(1000006);
+        TextView tvMsg = (TextView)view.findViewById(R.id.tvMsg);
+        TextView tvResubmit = (TextView)view.findViewById(R.id.tvResubmit);
         Intrinsics.checkNotNullExpressionValue(tvResubmit, "tvResubmit");
-        tvResubmit.setVisibility(4);
+        tvResubmit.setVisibility(View.INVISIBLE);
         Intrinsics.checkNotNullExpressionValue(tvMsg, "tvMsg");
         tvMsg.setText((CharSequence)"Campaign Added Successfully");
-        Button btnClose = (Button)view.findViewById(1000101);
+        Button btnClose = (Button)view.findViewById(R.id.btnClose);
         builder.setView(view);
         AlertDialog var8 = builder.create();
         Intrinsics.checkNotNullExpressionValue(var8, "builder.create()");
@@ -399,7 +403,7 @@ public final class AddSiteDetailActivity extends AppCompatActivity implements Lo
             Window var9 = dialog.getWindow();
             Intrinsics.checkNotNull(var9);
             Intrinsics.checkNotNullExpressionValue(var9, "dialog.window!!");
-            var9.getDecorView().setBackgroundResource(17170445);
+            var9.getDecorView().setBackgroundResource(android.R.color.transparent);
         }
 
         btnClose.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {
@@ -426,7 +430,6 @@ public final class AddSiteDetailActivity extends AppCompatActivity implements Lo
                 AddSiteDetailActivity.this.setYy(year);
                 AddSiteDetailActivity.this.setMm(month);
                 AddSiteDetailActivity.this.setDd(dayOfMonth);
-                StringCompanionObject var6 = StringCompanionObject.INSTANCE;
                 Locale var7 = Locale.getDefault();
                 String var8 = "%02d-%02d-%02d";
                 Object[] var9 = new Object[]{AddSiteDetailActivity.this.getDd(), AddSiteDetailActivity.this.getMm() + 1, AddSiteDetailActivity.this.getYy()};

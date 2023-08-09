@@ -6,6 +6,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.databinding.ActivityUpdateSiteDetailBinding;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -38,7 +40,7 @@ public final class UpdateSiteDetailActivity extends AppCompatActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300010);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_update_site_detail);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte…ivity_update_site_detail)");
         this.binding = (ActivityUpdateSiteDetailBinding)var10001;
     }

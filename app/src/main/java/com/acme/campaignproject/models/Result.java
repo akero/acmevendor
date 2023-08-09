@@ -69,6 +69,8 @@ public final class Result {
     }
 
     public Result(@NotNull String _id, @NotNull String author, @NotNull String authorSlug, @NotNull String content, @NotNull String dateAdded, @NotNull String dateModified, int length, @NotNull List tags) {
+        super();
+
         Intrinsics.checkNotNullParameter(_id, "_id");
         Intrinsics.checkNotNullParameter(author, "author");
         Intrinsics.checkNotNullParameter(authorSlug, "authorSlug");
@@ -76,7 +78,6 @@ public final class Result {
         Intrinsics.checkNotNullParameter(dateAdded, "dateAdded");
         Intrinsics.checkNotNullParameter(dateModified, "dateModified");
         Intrinsics.checkNotNullParameter(tags, "tags");
-        super();
         this._id = _id;
         this.author = author;
         this.authorSlug = authorSlug;

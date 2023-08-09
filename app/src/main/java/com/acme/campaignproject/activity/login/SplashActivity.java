@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.acme.campaignproject.R;
+
 import kotlin.Metadata;
 import org.jetbrains.annotations.Nullable;
 
@@ -18,13 +21,13 @@ import org.jetbrains.annotations.Nullable;
 public final class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(1300019);
+        this.setContentView(R.layout.activity_splash);
         (new Handler(Looper.getMainLooper())).postDelayed((Runnable)(new Runnable() {
             public final void run() {
                 Intent mainIntent = new Intent((Context)SplashActivity.this, WelcomeActivity.class);
                 SplashActivity.this.startActivity(mainIntent);
                 SplashActivity.this.finish();
             }
-        }), 3000L);
+        }), 3000);
     }
 }

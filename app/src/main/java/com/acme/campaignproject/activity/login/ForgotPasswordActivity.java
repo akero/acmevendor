@@ -17,6 +17,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.databinding.ActivityForgotPasswordBinding;
 import com.acme.campaignproject.utility.NetworkUtils;
 import kotlin.Metadata;
@@ -50,7 +52,7 @@ public final class ForgotPasswordActivity extends AppCompatActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300001);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_forgot_password);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte…activity_forgot_password)");
         this.binding = (ActivityForgotPasswordBinding)var10001;
     }
@@ -66,9 +68,9 @@ public final class ForgotPasswordActivity extends AppCompatActivity {
         Intrinsics.checkNotNullExpressionValue(var3, "binding.etEmailId");
         CharSequence var2 = (CharSequence)var3.getText();
         if (var2 == null || var2.length() == 0) {
-            Toast.makeText((Context)this, (CharSequence)"Fill the Email", 1).show();
+            Toast.makeText((Context)this, (CharSequence)"Fill the Email", Toast.LENGTH_SHORT).show();
         } else if (!NetworkUtils.Companion.isNetworkAvailable((Context)this)) {
-            Toast.makeText((Context)this, (CharSequence)"Check your Internet Connection and Try Again", 1).show();
+            Toast.makeText((Context)this, (CharSequence)"Check your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
         } else {
             this.showSuccessMessage();
         }
@@ -84,14 +86,14 @@ public final class ForgotPasswordActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder((Context)this);
         builder.setCancelable(false);
         LayoutInflater inflater = LayoutInflater.from((Context)this);
-        View var10000 = inflater.inflate(1300011, (ViewGroup)null);
+        View var10000 = inflater.inflate(R.layout.custom_emailsent, (ViewGroup)null);
         Intrinsics.checkNotNullExpressionValue(var10000, "inflater.inflate(R.layout.custom_emailsent, null)");
         View view = var10000;
-        TextView tvResubmit = (TextView)view.findViewById(1000006);
+        TextView tvResubmit = (TextView)view.findViewById(R.id.tvResubmit);
         String text = "<font color=#0089BE>Can't get email? </font> <font color=#DA2829>Resubmit</font>";
         Intrinsics.checkNotNullExpressionValue(tvResubmit, "tvResubmit");
         tvResubmit.setText((CharSequence)Html.fromHtml(text));
-        Button btnClose = (Button)view.findViewById(1000101);
+        Button btnClose = (Button)view.findViewById(R.id.btnClose);
         builder.setView(view);
         AlertDialog var8 = builder.create();
         Intrinsics.checkNotNullExpressionValue(var8, "builder.create()");
@@ -100,7 +102,7 @@ public final class ForgotPasswordActivity extends AppCompatActivity {
             Window var9 = dialog.getWindow();
             Intrinsics.checkNotNull(var9);
             Intrinsics.checkNotNullExpressionValue(var9, "dialog.window!!");
-            var9.getDecorView().setBackgroundResource(17170445);
+            var9.getDecorView().setBackgroundResource(android.R.color.transparent);
         }
 
         btnClose.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {

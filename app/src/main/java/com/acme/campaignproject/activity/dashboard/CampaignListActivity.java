@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -14,6 +15,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.adapters.CampaignListAdapter;
 import com.acme.campaignproject.databinding.ActivityCampaignListBinding;
 import kotlin.Metadata;
@@ -67,7 +70,7 @@ public final class CampaignListActivity extends AppCompatActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300005);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_campaign_list);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte…t.activity_campaign_list)");
         this.binding = (ActivityCampaignListBinding)var10001;
         this.campaignList();
@@ -86,14 +89,18 @@ public final class CampaignListActivity extends AppCompatActivity {
         JSONObject jsonObjecthyundai = new JSONObject();
         JSONObject jsonObjectford = new JSONObject();
         JSONObject jsonObjectpatanjli = new JSONObject();
-        jsonObjectairbnb.put("sitenumber", "001");
-        jsonObjecthyundai.put("sitenumber", "002");
-        jsonObjectford.put("sitenumber", "003");
-        jsonObjectpatanjli.put("sitenumber", "004");
-        jsonObjectairbnb.put("unitnumber", "#887001");
-        jsonObjecthyundai.put("unitnumber", "#878002");
-        jsonObjectford.put("unitnumber", "#765003");
-        jsonObjectpatanjli.put("unitnumber", "#432004");
+        try {
+            jsonObjectairbnb.put("sitenumber", "001");
+            jsonObjecthyundai.put("sitenumber", "002");
+            jsonObjectford.put("sitenumber", "003");
+            jsonObjectpatanjli.put("sitenumber", "004");
+            jsonObjectairbnb.put("unitnumber", "#887001");
+            jsonObjecthyundai.put("unitnumber", "#878002");
+            jsonObjectford.put("unitnumber", "#765003");
+            jsonObjectpatanjli.put("unitnumber", "#432004");
+        }catch(Exception e){
+    Log.d("tag1", e.toString());
+        }
         jsonArray.put(jsonObjectairbnb);
         jsonArray.put(jsonObjecthyundai);
         jsonArray.put(jsonObjectford);
@@ -117,13 +124,13 @@ public final class CampaignListActivity extends AppCompatActivity {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvOldCampaign.setBackgroundResource(700022);
+        var10000.tvOldCampaign.setBackgroundResource(R.drawable.primaryround);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvLiveCampaign.setBackgroundResource(500013);
+        var10000.tvLiveCampaign.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -146,13 +153,13 @@ public final class CampaignListActivity extends AppCompatActivity {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvLiveCampaign.setBackgroundResource(700022);
+        var10000.tvLiveCampaign.setBackgroundResource(R.drawable.primaryround);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvOldCampaign.setBackgroundResource(500013);
+        var10000.tvOldCampaign.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -178,7 +185,7 @@ public final class CampaignListActivity extends AppCompatActivity {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
             }
 
-            var10000.ivPlus.setImageResource(700024);
+            var10000.ivPlus.setImageResource(R.drawable.ic_add);
             this.showMenus = false;
             var10000 = this.binding;
             if (var10000 == null) {
@@ -187,7 +194,7 @@ public final class CampaignListActivity extends AppCompatActivity {
 
             var3 = var10000.ivAddSite;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivAddSite");
-            var3.setVisibility(4);
+            var3.setVisibility(View.INVISIBLE);
             var10000 = this.binding;
             if (var10000 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -195,7 +202,7 @@ public final class CampaignListActivity extends AppCompatActivity {
 
             var3 = var10000.ivRedo;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivRedo");
-            var3.setVisibility(4);
+            var3.setVisibility(View.INVISIBLE);
             var10000 = this.binding;
             if (var10000 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -203,7 +210,7 @@ public final class CampaignListActivity extends AppCompatActivity {
 
             var3 = var10000.ivDeleteSite;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivDeleteSite");
-            var3.setVisibility(4);
+            var3.setVisibility(View.INVISIBLE);
             animate = new TranslateAnimation(0.0F, 0.0F, 0.0F, (float)view.getHeight());
             animate.setDuration(0L);
             var10000 = this.binding;
@@ -233,7 +240,7 @@ public final class CampaignListActivity extends AppCompatActivity {
 
             var3 = var10000.ivAddSite;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivAddSite");
-            var3.setVisibility(0);
+            var3.setVisibility(View.VISIBLE);
             var10000 = this.binding;
             if (var10000 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -241,7 +248,7 @@ public final class CampaignListActivity extends AppCompatActivity {
 
             var3 = var10000.ivRedo;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivRedo");
-            var3.setVisibility(0);
+            var3.setVisibility(View.VISIBLE);
             var10000 = this.binding;
             if (var10000 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -249,7 +256,7 @@ public final class CampaignListActivity extends AppCompatActivity {
 
             var3 = var10000.ivDeleteSite;
             Intrinsics.checkNotNullExpressionValue(var3, "binding.ivDeleteSite");
-            var3.setVisibility(0);
+            var3.setVisibility(View.VISIBLE);
             animate = new TranslateAnimation(0.0F, 0.0F, (float)view.getHeight(), 0.0F);
             animate.setDuration(500L);
             animate.setFillAfter(true);
@@ -276,7 +283,7 @@ public final class CampaignListActivity extends AppCompatActivity {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
             }
 
-            var10000.ivPlus.setImageResource(700025);
+            var10000.ivPlus.setImageResource(R.drawable.ic_cross);
         }
 
     }

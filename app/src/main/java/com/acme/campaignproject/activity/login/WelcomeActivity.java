@@ -14,6 +14,8 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.activity.dashboard.BaseActivity;
 import com.acme.campaignproject.databinding.ActivityWelcomeBinding;
 import com.acme.campaignproject.models.SendOtpResponseModel;
@@ -51,7 +53,7 @@ public final class WelcomeActivity extends BaseActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300008);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_welcome);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte….layout.activity_welcome)");
         this.binding = (ActivityWelcomeBinding)var10001;
         this.welcomeActivityViewModel = (WelcomeActivityViewModel)(new ViewModelProvider((ViewModelStoreOwner)this)).get(WelcomeActivityViewModel.class);

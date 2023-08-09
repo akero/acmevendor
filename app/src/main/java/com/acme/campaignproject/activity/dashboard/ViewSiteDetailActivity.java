@@ -7,6 +7,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.databinding.ActivityViewSiteDetailBinding;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -65,7 +67,7 @@ public final class ViewSiteDetailActivity extends AppCompatActivity {
         String var4;
         label29: {
             super.onCreate(savedInstanceState);
-            ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300016);
+            ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_view_site_detail);
             Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte…ctivity_view_site_detail)");
             this.binding = (ActivityViewSiteDetailBinding)var10001;
             var2 = this.getIntent();
@@ -125,13 +127,13 @@ public final class ViewSiteDetailActivity extends AppCompatActivity {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvOldCampaign.setBackgroundResource(700022);
+        var10000.tvOldCampaign.setBackgroundResource(R.drawable.primaryround);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvLiveCampaign.setBackgroundResource(500013);
+        var10000.tvLiveCampaign.setBackgroundResource(R.color.coloryellow);
     }
 
     public final void liveCampaignClick(@NotNull View view) {
@@ -141,12 +143,12 @@ public final class ViewSiteDetailActivity extends AppCompatActivity {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvLiveCampaign.setBackgroundResource(700022);
+        var10000.tvLiveCampaign.setBackgroundResource(R.drawable.primaryround);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvOldCampaign.setBackgroundResource(500013);
+        var10000.tvOldCampaign.setBackgroundResource(R.color.coloryellow);
     }
 }

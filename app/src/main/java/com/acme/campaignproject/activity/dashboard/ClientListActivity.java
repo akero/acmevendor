@@ -2,6 +2,9 @@ package com.acme.campaignproject.activity.dashboard;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.acme.campaignproject.R;
+
 import kotlin.Metadata;
 import org.jetbrains.annotations.Nullable;
 
@@ -14,6 +17,6 @@ import org.jetbrains.annotations.Nullable;
 public final class ClientListActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(1300018);
+        this.setContentView(R.layout.activity_clinet_list);
     }
 }

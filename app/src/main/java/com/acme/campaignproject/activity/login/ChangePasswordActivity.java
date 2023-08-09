@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.databinding.ActivityChangePasswordBinding;
 import com.acme.campaignproject.utility.NetworkUtils;
 import kotlin.Metadata;
@@ -42,7 +44,7 @@ public final class ChangePasswordActivity extends AppCompatActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300009);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_change_password);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte…activity_change_password)");
         this.binding = (ActivityChangePasswordBinding)var10001;
     }
@@ -94,9 +96,9 @@ public final class ChangePasswordActivity extends AppCompatActivity {
                     Intrinsics.checkNotNullExpressionValue(var4, "binding.etConfirmPassword");
                     var2 = (CharSequence)var4.getText();
                     if (!var5.equals(var2 == null || var2.length() == 0)) {
-                        Toast.makeText((Context)this, (CharSequence)"New and Confirm Passwords must be same", 1).show();
+                        Toast.makeText((Context)this, (CharSequence)"New and Confirm Passwords must be same", Toast.LENGTH_SHORT).show();
                     } else if (!NetworkUtils.Companion.isNetworkAvailable((Context)this)) {
-                        Toast.makeText((Context)this, (CharSequence)"Check your Internet Connection and Try Again", 1).show();
+                        Toast.makeText((Context)this, (CharSequence)"Check your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -105,6 +107,6 @@ public final class ChangePasswordActivity extends AppCompatActivity {
             }
         }
 
-        Toast.makeText((Context)this, (CharSequence)"Fill all the fields", 1).show();
+        Toast.makeText((Context)this, (CharSequence)"Fill all the fields", Toast.LENGTH_SHORT).show();
     }
 }

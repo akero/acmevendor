@@ -71,7 +71,7 @@ public final class LoginActivity extends BaseActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300013);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_login);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte…,R.layout.activity_login)");
         this.binding = (ActivityLoginBinding)var10001;
         ActivityLoginBinding var10000 = this.binding;

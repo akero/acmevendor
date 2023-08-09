@@ -31,7 +31,7 @@ public final class NetworkUtils {
             if (context == null) {
                 return false;
             } else {
-                Object var10000 = context.getSystemService("connectivity");
+                Object var10000 = context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 if (var10000 == null) {
                     throw new NullPointerException("null cannot be cast to non-null type android.net.ConnectivityManager");
                 } else {
@@ -39,15 +39,15 @@ public final class NetworkUtils {
                     if (VERSION.SDK_INT >= 29) {
                         NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
                         if (capabilities != null) {
-                            if (capabilities.hasTransport(0)) {
+                            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
                                 return true;
                             }
 
-                            if (capabilities.hasTransport(1)) {
+                            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
                                 return true;
                             }
 
-                            if (capabilities.hasTransport(3)) {
+                            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
                                 return true;
                             }
                         }

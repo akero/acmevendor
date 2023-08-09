@@ -15,6 +15,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.databinding.ActivityAddClientBinding;
 import com.acme.campaignproject.utility.NetworkUtils;
 import kotlin.Metadata;
@@ -48,7 +50,7 @@ public final class AddClientActivity extends AppCompatActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300002);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_add_client);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte…yout.activity_add_client)");
         this.binding = (ActivityAddClientBinding)var10001;
     }
@@ -115,7 +117,7 @@ public final class AddClientActivity extends AppCompatActivity {
                             var2 = (CharSequence)var3.getText();
                             if (var2 != null && var2.length() != 0) {
                                 if (!NetworkUtils.Companion.isNetworkAvailable((Context)this)) {
-                                    Toast.makeText((Context)this, (CharSequence)"Check your Internet Connection and Try Again", 1).show();
+                                    Toast.makeText((Context)this, (CharSequence)"Check your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
                                 } else {
                                     var10000 = this.binding;
                                     if (var10000 == null) {
@@ -164,23 +166,23 @@ public final class AddClientActivity extends AppCompatActivity {
             }
         }
 
-        Toast.makeText((Context)this, (CharSequence)"Fill all the fields", 1).show();
+        Toast.makeText((Context)this, (CharSequence)"Fill all the fields", Toast.LENGTH_SHORT).show();
     }
 
     public final void showSuccessMessage() {
         AlertDialog.Builder builder = new AlertDialog.Builder((Context)this);
         builder.setCancelable(false);
         LayoutInflater inflater = LayoutInflater.from((Context)this);
-        View var10000 = inflater.inflate(1300011, (ViewGroup)null);
+        View var10000 = inflater.inflate(R.layout.custom_emailsent, (ViewGroup)null);
         Intrinsics.checkNotNullExpressionValue(var10000, "inflater.inflate(R.layout.custom_emailsent, null)");
         View view = var10000;
-        TextView tvMsg = (TextView)view.findViewById(1000003);
-        TextView tvResubmit = (TextView)view.findViewById(1000006);
+        TextView tvMsg = (TextView)view.findViewById(R.id.tvMsg);
+        TextView tvResubmit = (TextView)view.findViewById(R.id.tvResubmit);
         Intrinsics.checkNotNullExpressionValue(tvResubmit, "tvResubmit");
-        tvResubmit.setVisibility(8);
+        tvResubmit.setVisibility(View.GONE);
         Intrinsics.checkNotNullExpressionValue(tvMsg, "tvMsg");
         tvMsg.setText((CharSequence)"Client Added Successfully");
-        Button btnClose = (Button)view.findViewById(1000101);
+        Button btnClose = (Button)view.findViewById(R.id.btnClose);
         builder.setView(view);
         AlertDialog var8 = builder.create();
         Intrinsics.checkNotNullExpressionValue(var8, "builder.create()");
@@ -189,7 +191,7 @@ public final class AddClientActivity extends AppCompatActivity {
             Window var9 = dialog.getWindow();
             Intrinsics.checkNotNull(var9);
             Intrinsics.checkNotNullExpressionValue(var9, "dialog.window!!");
-            var9.getDecorView().setBackgroundResource(17170445);
+            var9.getDecorView().setBackgroundResource(android.R.color.transparent);
         }
 
         btnClose.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {

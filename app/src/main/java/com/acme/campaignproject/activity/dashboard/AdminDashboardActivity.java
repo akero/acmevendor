@@ -96,7 +96,7 @@ public final class AdminDashboardActivity extends AppCompatActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300017);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_main);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte…, R.layout.activity_main)");
         this.binding = (ActivityMainBinding)var10001;
         this.clientList();

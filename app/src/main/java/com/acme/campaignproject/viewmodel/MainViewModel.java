@@ -16,8 +16,8 @@ public final class MainViewModel extends ViewModel {
     private final CampaignRepository repository;
 
     public MainViewModel(@NotNull CampaignRepository repository) {
-        Intrinsics.checkNotNullParameter(repository, "repository");
         super();
+        Intrinsics.checkNotNullParameter(repository, "repository");
         this.repository = repository;
     }
 }

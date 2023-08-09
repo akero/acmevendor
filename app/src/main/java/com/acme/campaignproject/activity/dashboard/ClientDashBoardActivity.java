@@ -5,12 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.acme.campaignproject.R;
 import com.acme.campaignproject.adapters.CampaignListAdapter;
 import com.acme.campaignproject.databinding.ActivityClientDashBoardBinding;
 import kotlin.Metadata;
@@ -55,7 +58,7 @@ public final class ClientDashBoardActivity extends AppCompatActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, 1300006);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_client_dash_board);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte…tivity_client_dash_board)");
         this.binding = (ActivityClientDashBoardBinding)var10001;
         this.campaignList();
@@ -69,13 +72,13 @@ public final class ClientDashBoardActivity extends AppCompatActivity {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvOldCampaign.setBackgroundResource(700022);
+        var10000.tvOldCampaign.setBackgroundResource(R.drawable.primaryround);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvLiveCampaign.setBackgroundResource(500013);
+        var10000.tvLiveCampaign.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -98,13 +101,13 @@ public final class ClientDashBoardActivity extends AppCompatActivity {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvLiveCampaign.setBackgroundResource(700022);
+        var10000.tvLiveCampaign.setBackgroundResource(R.drawable.primaryround);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
         }
 
-        var10000.tvOldCampaign.setBackgroundResource(500013);
+        var10000.tvOldCampaign.setBackgroundResource(R.color.coloryellow);
         var10000 = this.binding;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -132,14 +135,18 @@ public final class ClientDashBoardActivity extends AppCompatActivity {
         JSONObject jsonObjecthyundai = new JSONObject();
         JSONObject jsonObjectford = new JSONObject();
         JSONObject jsonObjectpatanjli = new JSONObject();
-        jsonObjectairbnb.put("sitenumber", "001");
-        jsonObjecthyundai.put("sitenumber", "002");
-        jsonObjectford.put("sitenumber", "003");
-        jsonObjectpatanjli.put("sitenumber", "004");
-        jsonObjectairbnb.put("unitnumber", "#887001");
-        jsonObjecthyundai.put("unitnumber", "#878002");
-        jsonObjectford.put("unitnumber", "#765003");
-        jsonObjectpatanjli.put("unitnumber", "#432004");
+        try {
+            jsonObjectairbnb.put("sitenumber", "001");
+            jsonObjecthyundai.put("sitenumber", "002");
+            jsonObjectford.put("sitenumber", "003");
+            jsonObjectpatanjli.put("sitenumber", "004");
+            jsonObjectairbnb.put("unitnumber", "#887001");
+            jsonObjecthyundai.put("unitnumber", "#878002");
+            jsonObjectford.put("unitnumber", "#765003");
+            jsonObjectpatanjli.put("unitnumber", "#432004");
+        }catch(Exception e){
+            Log.d("tag1", e.toString());
+        }
         jsonArray.put(jsonObjectairbnb);
         jsonArray.put(jsonObjecthyundai);
         jsonArray.put(jsonObjectford);

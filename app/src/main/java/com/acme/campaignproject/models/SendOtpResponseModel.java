@@ -26,8 +26,9 @@ public final class SendOtpResponseModel {
     }
 
     public SendOtpResponseModel(@NotNull String message, int status) {
-        Intrinsics.checkNotNullParameter(message, "message");
         super();
+
+        Intrinsics.checkNotNullParameter(message, "message");
         this.message = message;
         this.status = status;
     }

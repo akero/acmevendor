@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.acme.campaignproject.R;
+
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import org.jetbrains.annotations.NotNull;
@@ -45,7 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder((Context)this);
         builder.setCancelable(false);
         LayoutInflater inflater = LayoutInflater.from((Context)this);
-        View view = inflater.inflate(1300014, (ViewGroup)null);
+        View view = inflater.inflate(R.layout.custom_progess, (ViewGroup)null);
         builder.setView(view);
         AlertDialog var10000 = builder.create();
         Intrinsics.checkNotNullExpressionValue(var10000, "builder.create()");
@@ -54,7 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             Window var5 = dialog.getWindow();
             Intrinsics.checkNotNull(var5);
             Intrinsics.checkNotNullExpressionValue(var5, "dialog.window!!");
-            var5.getDecorView().setBackgroundResource(17170445);
+            var5.getDecorView().setBackgroundResource(android.R.color.transparent);
         }
 
         return dialog;
@@ -109,12 +112,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder((Context)this);
         builder.setCancelable(false);
         LayoutInflater inflater = LayoutInflater.from((Context)this);
-        View view = inflater.inflate(1300000, (ViewGroup)null);
-        TextView tvMsg = (TextView)view.findViewById(1000003);
+        View view = inflater.inflate(R.layout.custom_popup, (ViewGroup)null);
+        TextView tvMsg = (TextView)view.findViewById(R.id.tvMsg);
         Intrinsics.checkNotNullExpressionValue(tvMsg, "tvMsg");
         tvMsg.setTypeface(Typeface.createFromAsset(this.getAssets(), "fonts/pregular.otf"));
         tvMsg.setText((CharSequence)msg);
-        Button btnOk = (Button)view.findViewById(1000093);
+        Button btnOk = (Button)view.findViewById(R.id.btnOk);
         Intrinsics.checkNotNullExpressionValue(btnOk, "btnOk");
         btnOk.setTypeface(Typeface.createFromAsset(this.getAssets(), "fonts/pbold.otf"));
         builder.setView(view);
@@ -125,7 +128,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             Window var8 = dialog.getWindow();
             Intrinsics.checkNotNull(var8);
             Intrinsics.checkNotNullExpressionValue(var8, "dialog.window!!");
-            var8.getDecorView().setBackgroundResource(17170445);
+            var8.getDecorView().setBackgroundResource(android.R.color.transparent);
         }
 
         btnOk.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {
@@ -147,12 +150,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder((Context)this);
         builder.setCancelable(false);
         LayoutInflater inflater = LayoutInflater.from((Context)this);
-        View view = inflater.inflate(1300000, (ViewGroup)null);
-        TextView tvMsg = (TextView)view.findViewById(1000003);
+        View view = inflater.inflate(R.layout.custom_popup, (ViewGroup)null);
+        TextView tvMsg = (TextView)view.findViewById(R.id.tvMsg);
         Intrinsics.checkNotNullExpressionValue(tvMsg, "tvMsg");
         tvMsg.setTypeface(Typeface.createFromAsset(this.getAssets(), "fonts/pregular.otf"));
         tvMsg.setText((CharSequence)msg);
-        Button btnOk = (Button)view.findViewById(1000093);
+        Button btnOk = (Button)view.findViewById(R.id.btnOk);
         Intrinsics.checkNotNullExpressionValue(btnOk, "btnOk");
         btnOk.setTypeface(Typeface.createFromAsset(this.getAssets(), "fonts/pbold.otf"));
         builder.setView(view);
@@ -163,7 +166,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             Window var9 = dialog.getWindow();
             Intrinsics.checkNotNull(var9);
             Intrinsics.checkNotNullExpressionValue(var9, "dialog.window!!");
-            var9.getDecorView().setBackgroundResource(17170445);
+            var9.getDecorView().setBackgroundResource(android.R.color.transparent);
         }
 
         btnOk.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {
