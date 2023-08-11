@@ -53,28 +53,28 @@ public final class WelcomeActivity extends BaseActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity)this, R.layout.activity_welcome);
+        ViewDataBinding var10001 = DataBindingUtil.setContentView((Activity) this, R.layout.activity_welcome);
         Intrinsics.checkNotNullExpressionValue(var10001, "DataBindingUtil.setConte….layout.activity_welcome)");
-        this.binding = (ActivityWelcomeBinding)var10001;
-        this.welcomeActivityViewModel = (WelcomeActivityViewModel)(new ViewModelProvider((ViewModelStoreOwner)this)).get(WelcomeActivityViewModel.class);
+        this.binding = (ActivityWelcomeBinding) var10001;
+        this.welcomeActivityViewModel = (WelcomeActivityViewModel) (new ViewModelProvider((ViewModelStoreOwner) this)).get(WelcomeActivityViewModel.class);
         WelcomeActivityViewModel var10000 = this.welcomeActivityViewModel;
         if (var10000 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("welcomeActivityViewModel");
         }
 
-        var10000.getSuccessresponse().observe((LifecycleOwner)this, (Observer)(new Observer() {
+        var10000.getSuccessresponse().observe((LifecycleOwner) this, (Observer) (new Observer() {
             // $FF: synthetic method
             // $FF: bridge method
             public void onChanged(Object var1) {
-                this.onChanged((SendOtpResponseModel)var1);
+                this.onChanged((SendOtpResponseModel) var1);
             }
 
             public final void onChanged(SendOtpResponseModel it) {
                 WelcomeActivity.this.hideProgressDialog();
-                Toast.makeText((Context)WelcomeActivity.this, (CharSequence)it.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText((Context) WelcomeActivity.this, (CharSequence) it.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.d("result", "ressponse " + it);
                 WelcomeActivity var10000 = WelcomeActivity.this;
-                Intent var10001 = new Intent((Context)WelcomeActivity.this, LoginActivity.class);
+                Intent var10001 = new Intent((Context) WelcomeActivity.this, LoginActivity.class);
                 EditText var10003 = WelcomeActivity.this.getBinding().etEmailId;
                 Intrinsics.checkNotNullExpressionValue(var10003, "binding.etEmailId");
                 var10000.startActivity(var10001.putExtra("Email", var10003.getText().toString()));
@@ -85,50 +85,54 @@ public final class WelcomeActivity extends BaseActivity {
             Intrinsics.throwUninitializedPropertyAccessException("welcomeActivityViewModel");
         }
 
-        var10000.getErrorMessage().observe((LifecycleOwner)this, (Observer)(new Observer() {
+        var10000.getErrorMessage().observe((LifecycleOwner) this, (Observer) (new Observer() {
             // $FF: synthetic method
             // $FF: bridge method
             public void onChanged(Object var1) {
-                this.onChanged((String)var1);
+                this.onChanged((String) var1);
             }
 
             public final void onChanged(String it) {
                 WelcomeActivity.this.hideProgressDialog();
-                Toast.makeText((Context)WelcomeActivity.this, (CharSequence)it, Toast.LENGTH_SHORT).show();
+                Toast.makeText((Context) WelcomeActivity.this, (CharSequence) it, Toast.LENGTH_SHORT).show();
                 Log.d("result", "ressponse " + it);
             }
         }));
     }
 
     public final void btnSubmitClick(@NotNull View view) {
-        Intrinsics.checkNotNullParameter(view, "view");
-        ActivityWelcomeBinding var10000 = this.binding;
-        if (var10000 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("binding");
-        }
-
-        EditText var3 = var10000.etEmailId;
-        Intrinsics.checkNotNullExpressionValue(var3, "binding.etEmailId");
-        CharSequence var2 = (CharSequence)var3.getText();
-        if (var2 == null || var2.length() == 0) {
-            Toast.makeText((Context)this, (CharSequence)"Fill the Email", Toast.LENGTH_SHORT).show();
-        } else if (!NetworkUtils.Companion.isNetworkAvailable((Context)this)) {
-            Toast.makeText((Context)this, (CharSequence)"Check your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
-        } else {
-            this.showProgressDialog();
-            WelcomeActivityViewModel var4 = this.welcomeActivityViewModel;
-            if (var4 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("welcomeActivityViewModel");
-            }
-
-            ActivityWelcomeBinding var10002 = this.binding;
-            if (var10002 == null) {
+        try {
+            Intrinsics.checkNotNullParameter(view, "view");
+            ActivityWelcomeBinding var10000 = this.binding;
+            if (var10000 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
             }
 
-            EditText var5 = var10002.etEmailId;
-            Intrinsics.checkNotNullExpressionValue(var5, "binding.etEmailId");
-            var4.callOtp("+91", var5.getText().toString());
+            EditText var3 = var10000.etEmailId;
+            Intrinsics.checkNotNullExpressionValue(var3, "binding.etEmailId");
+            CharSequence var2 = (CharSequence) var3.getText();
+            if (var2 == null || var2.length() == 0) {
+                Toast.makeText((Context) this, (CharSequence) "Fill the Email", Toast.LENGTH_SHORT).show();
+            } else if (!NetworkUtils.Companion.isNetworkAvailable((Context) this)) {
+                Toast.makeText((Context) this, (CharSequence) "Check your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
+            } else {
+                this.showProgressDialog();
+                WelcomeActivityViewModel var4 = this.welcomeActivityViewModel;
+                if (var4 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("welcomeActivityViewModel");
+                }
+
+                ActivityWelcomeBinding var10002 = this.binding;
+                if (var10002 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("binding");
+                }
+
+                EditText var5 = var10002.etEmailId;
+                Intrinsics.checkNotNullExpressionValue(var5, "binding.etEmailId");
+                var4.callOtp("+91", var5.getText().toString());
+            }
+        } catch (Exception e) {
+            Log.d("tag5",e.toString());
         }
     }
 }
